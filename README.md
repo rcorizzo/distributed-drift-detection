@@ -1,0 +1,13 @@
+# Distributed Concept Drift Detection for Efficient Model Adaptation with Big Data Streams
+## Ian Whitehouse, Rodrigo Yepez-Lopez, [Roberto Corizzo](mailto:rcorizzo@american.edu)
+[American University, Washington DC, United States of America](https://american.edu)
+
+## Abstract
+Predictive models are essential in big data platforms to tackle the needs of several real-world applications. 
+However, static models are known to be prone to obsolescence in dynamic environments. While concept drift detection represents a viable way to deal with this problem, it is scarcely explored in the context of big data streams. In this paper, we propose a distributed drift detection workflow based on the DDM algorithm paired with a predictive model. Our workflow updates the predictive model as soon as drifts are detected, adjusting to the most recent data characteristics. To enable the analysis of large-scale datasets, we leverage Pandas UDFs and Apache Spark, efficiently distributing this workload across multiple worker node instances. Our experiments on two real-world drift detection datasets show the positive results obtained in terms of Speedup, Scaleup, and a limited impact in detection delay in comparison to a single worker node instance.
+[Link to paper](https://example.com)
+
+## Repository Overview
+ - DDM_Process.py: Main Python script that implements the Spark program.  Some notes on the implementation can be found on line 76 of the program.  This file can be run directly on your Spark cluster by editing the all-uppercase settings values on line 5-33, or can be run using the provided run_eperiments.sh script by uncommenting the command line argument section on lines 18-21
+ - run_experiments.sh: Script that calls DDM_Process.py to reproduce our experiments.  Please note that you will have to edit the Spark cluster URL within this file, and will need to edit the filename of the dataset you wish to use within DDM_Process.py
+ - Plot Results.ipynb: Notebook to visualize the results of the expirements we ran.  Additionally, this notebook will generate a script called missing_exps.sh that can be run to fix missing trials after running the previous script (i.e. in the case of a cluster crash).  This notebook both displays the plots used in the paper and saves them to a pdf with the filename "*#*.pdf", where *#* increases with each plot generated.  The notebook prints out the number with each displayed plot so you can find the generated pdf
